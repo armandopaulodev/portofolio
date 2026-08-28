@@ -80,9 +80,16 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-off
 .site-header .wrap{display:flex;align-items:center;gap:32px;padding-top:18px;padding-bottom:18px}
 .brand{display:flex;align-items:center;gap:11px;font-family:var(--mono);font-size:14px}
 .dot{width:9px;height:9px;border-radius:50%;background:var(--accent);flex:none}
-.nav{display:flex;gap:30px;margin-left:auto;font-family:var(--mono);font-size:13.5px;color:var(--dim)}
-.nav a{color:var(--dim)}
-.nav a:hover{color:var(--text)}
+.nav{display:flex;gap:34px;margin-left:auto;font-family:var(--mono);font-size:14.5px;letter-spacing:.01em}
+.nav a{position:relative;color:var(--text);padding:4px 0}
+.nav a::after{
+  content:"";position:absolute;left:0;right:0;bottom:0;height:1px;
+  background:var(--accent);transform:scaleX(0);transform-origin:left;
+  transition:transform .2s ease;
+}
+.nav a:hover{color:var(--accent)}
+.nav a:hover::after{transform:scaleX(1)}
+@media (prefers-reduced-motion:reduce){.nav a::after{transition:none}}
 .btn-ghost{
   display:inline-flex;align-items:center;gap:9px;
   border:1px solid var(--line-2);border-radius:2px;
@@ -251,11 +258,11 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-off
   <div class="wrap">
     <a class="brand" href="#top"><span class="dot" aria-hidden="true"></span><span>armando paulo</span></a>
     <nav class="nav" aria-label="Principal">
-      <a href="#sistemas">sistemas</a>
-      <a href="#experiencia">experiência</a>
-      <a href="#stack">stack</a>
-      <a href="#formacao">formação</a>
-      <a href="#contacto">contacto</a>
+      <a href="#sistemas">Sistemas</a>
+      <a href="#experiencia">Experiência</a>
+      <a href="#stack">Stack</a>
+      <a href="#formacao">Formação</a>
+      <a href="#contacto">Contacto</a>
     </nav>
     <a class="btn-ghost" href="#contacto">
       <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2.5" y="4.5" width="19" height="15" rx="2"></rect><path d="m3 7 9 6 9-6"></path></svg>
